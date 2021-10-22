@@ -18,6 +18,9 @@ sudo chmod +X post.cgi
 使用:
 
 测试get方法：默认端口号是8888，在浏览器输入本地IP：192.168.xxx.xxx:8888 成功则跳转到test.html界面
+ ![image](https://github.com/ruokaic/myhttp/blob/main/picture/test1.png)
+ 
 测试post方法：浏览器输入192.168.xxx.xxx:8888/post.html跳转到输入界面，填写内容，点击提交，成功则会返回填写内容
-
+ ![image](https://github.com/ruokaic/myhttp/blob/main/picture/test1.png)
+  ![image](https://github.com/ruokaic/myhttp/blob/main/picture/test1.png)
 
