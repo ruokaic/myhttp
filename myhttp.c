@@ -314,8 +314,8 @@ void execute_cgi(int cfd, const char *path,const char *method, const char *query
         char query_env[255];
         char length_env[255];
 
-        dup2(cgi_output[1], 1); //重定向到标准输出
-        dup2(cgi_input[0], 0);  //重定向到标准输入
+        dup2(cgi_output[1], 1); //重定向标准输出到管道输出
+        dup2(cgi_input[0], 0);  //重定向标准输入到管道输入
 
         close(cgi_output[0]);//关闭了cgi_output中的读通道
         close(cgi_input[1]);//关闭了cgi_input中的写通道
@@ -337,7 +337,7 @@ void execute_cgi(int cfd, const char *path,const char *method, const char *query
             sprintf(length_env, "CONTENT_LENGTH=%d", content_length);
             putenv(length_env);
         }
-        fprintf(stderr,"\n path: %s",path);	//不能用printf，因为管道重定向到了标准输出
+        fprintf(stderr,"\n path: %s",path);	//不能用printf，因为重定向了
         execl(path, path, NULL);//执行CGI脚本
         exit(0);
     }
